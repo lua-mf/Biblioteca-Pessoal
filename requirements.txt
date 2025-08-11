@@ -1,0 +1,2 @@
+O dicionário livro é usado para armazenamento temporário em memória. Ele guarda os dados apenas enquanto o programa está em execução.
+O arquivo biblioteca.txt é o armazenamento persistente do programa. Ele funciona como o banco de dados e salva os livros entre as execuções.
