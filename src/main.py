@@ -25,7 +25,10 @@ def main():
                 utils.vizualizar_todos(livros)
             elif resposta_2 == 'b':
                 utils.filtrar_por_categoria(livros)
-
+            elif resposta_2 == 'c':
+                utils.extrato_por_categoria(livros)
+            elif resposta_2 == 'd':
+                utils.controle_de_gastos(livros)
         elif resposta_1 == 5:
             break
 

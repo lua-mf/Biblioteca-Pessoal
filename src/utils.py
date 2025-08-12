@@ -5,7 +5,7 @@ def adicionar(livros):
     livros['autor'].append(autor)
     categoria = input('categoria: ')
     livros['categoria'].append(categoria)
-    valor = input('valor: ')
+    valor = float(input('valor: '))
     livros['valor'].append(valor)
     return 'Livro Adicionado com Sucesso!'
 
@@ -23,3 +23,13 @@ def filtrar_por_categoria(livros):
         indice += 1
         if valor == categoria:
             print(livros['nome'][indice])
+
+
+# def extrato_por_categoria(livros):
+
+
+def controle_de_gastos(livros):
+    soma = 0
+    for valor in livros['valor']:
+        soma += valor
+    print('R$', soma)
