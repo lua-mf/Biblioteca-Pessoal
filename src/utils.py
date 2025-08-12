@@ -27,9 +27,8 @@ def filtrar_por_categoria(livros):
 
 # def extrato_por_categoria(livros):
 
-
 def controle_de_gastos(livros):
     soma = 0
     for valor in livros['valor']:
         soma += valor
-    print('R$', soma)
+    print(f'R$ {soma:.2f}')
