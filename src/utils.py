@@ -1,10 +1,25 @@
-def adicionar(livro):
+def adicionar(livros):
     nome = input('nome: ')
-    livro['nome'].append(nome)
+    livros['nome'].append(nome)
     autor = input('autor: ')
-    livro['autor'].append(autor)
+    livros['autor'].append(autor)
     categoria = input('categoria: ')
-    livro['categoria'].append(categoria)
+    livros['categoria'].append(categoria)
     valor = input('valor: ')
-    livro['valor'].append(valor)
+    livros['valor'].append(valor)
     return 'Livro Adicionado com Sucesso!'
+
+
+def vizualizar_todos(livros):
+    print('--------- Todos os Livros ---------\n')
+    for nome in livros.get('nome'):
+        print(nome)
+
+
+def filtrar_por_categoria(livros):
+    categoria = input('categoria: ')
+    indice = -1
+    for valor in livros['categoria']:
+        indice += 1
+        if valor == categoria:
+            print(livros['nome'][indice])
