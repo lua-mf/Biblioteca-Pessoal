@@ -25,7 +25,18 @@ def filtrar_por_categoria(livros):
         if livros[i].get('categoria') == categoria:
             print(livros[i].get('nome'))
 
-# def extrato_por_categoria(livros):
+
+def extrato_por_categoria(livros):
+    categorias = {}
+    for i in range(len(livros)):
+        if livros[i].get('categoria') not in categorias:
+            categorias[livros[i].get('categoria')] = livros[i].get('valor')
+        else:
+            soma = categorias[livros[i].get('categoria')]
+            categorias[livros[i].get('categoria')] = (
+                soma + livros[i].get('valor')
+            )
+    print(categorias)
 
 
 def controle_de_gastos(livros):
