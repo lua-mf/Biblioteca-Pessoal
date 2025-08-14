@@ -1,15 +1,13 @@
 import utils
+import file_manager
 import os
 os.system("cls")
 
 
 def main():
-    livros = {
-        'nome': [],
-        'autor': [],
-        'categoria': [],
-        'valor': []
-    }
+    # lista de dicionarios, cada dicionario é um livro
+    livros = []
+
     while True:
         # CRUD
         print('\n--------- Menu ---------\n 1 - Adicionar\n 2 - Visualizar\n 3 - Atualizar\n 4 - Excluir\n 5 - Sair')
@@ -22,7 +20,7 @@ def main():
                 'a) Todos os livros\nb) Filtrar por categoria\nc) Extrato por categoria\nd) Controle de Gastos')
             resposta_2 = input()
             if resposta_2 == 'a':
-                utils.vizualizar_todos(livros)
+                utils.visualizar_todos(livros)
             elif resposta_2 == 'b':
                 utils.filtrar_por_categoria(livros)
             elif resposta_2 == 'c':
@@ -30,6 +28,7 @@ def main():
             elif resposta_2 == 'd':
                 utils.controle_de_gastos(livros)
         elif resposta_1 == 5:
+            file_manager.salvar_livros(livros)
             break
 
 

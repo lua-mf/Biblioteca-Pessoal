@@ -1,34 +1,31 @@
 def adicionar(livros):
+    livro = {}
     nome = input('nome: ')
-    livros['nome'].append(nome)
+    livro['nome'] = nome
     autor = input('autor: ')
-    livros['autor'].append(autor)
+    livro['autor'] = autor
     categoria = input('categoria: ')
-    livros['categoria'].append(categoria)
+    livro['categoria'] = categoria
     valor = float(input('valor: '))
-    livros['valor'].append(valor)
+    livro['valor'] = valor
+
+    livros.append(livro)
     return 'Livro Adicionado com Sucesso!'
 
 
-def vizualizar_todos(livros):
+def visualizar_todos(livros):
     print('--------- Todos os Livros ---------\n')
-    for nome in livros.get('nome'):
-        print(nome)
+    for i in range(len(livros)):
+        print(livros[i].get('nome'))
 
 
 def filtrar_por_categoria(livros):
     categoria = input('categoria: ')
-    indice = -1
-    for valor in livros['categoria']:
-        indice += 1
-        if valor == categoria:
-            print(livros['nome'][indice])
-
+    for i in range(len(livros)):
+        if livros[i].get('categoria') == categoria:
+            print(livros[i].get('nome'))
 
 # def extrato_por_categoria(livros):
 
-def controle_de_gastos(livros):
-    soma = 0
-    for valor in livros['valor']:
-        soma += valor
-    print(f'R$ {soma:.2f}')
+
+# def controle_de_gastos(livros):
