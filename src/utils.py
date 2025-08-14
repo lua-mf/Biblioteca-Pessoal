@@ -28,4 +28,8 @@ def filtrar_por_categoria(livros):
 # def extrato_por_categoria(livros):
 
 
-# def controle_de_gastos(livros):
+def controle_de_gastos(livros):
+    soma = 0
+    for i in range(len(livros)):
+        soma += livros[i].get('valor')
+    print(f'R$ {soma:.2f}')
