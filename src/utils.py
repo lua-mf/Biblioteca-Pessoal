@@ -36,7 +36,8 @@ def extrato_por_categoria(livros):
             categorias[livros[i].get('categoria')] = (
                 soma + livros[i].get('valor')
             )
-    print(categorias)
+    for categoria in categorias:
+        print(f'{categoria}: R$ {categorias[categoria]:.2f}')
 
 
 def controle_de_gastos(livros):
