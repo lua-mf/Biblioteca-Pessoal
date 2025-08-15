@@ -43,14 +43,26 @@ def filtrar_por_categoria(livros):
 
 def extrato_por_categoria(livros):
     categorias = {}
-    for i in range(len(livros)):
-        if livros[i].get('categoria') not in categorias:
-            categorias[livros[i].get('categoria')] = livros[i].get('valor')
-        else:
-            soma = categorias[livros[i].get('categoria')]
-            categorias[livros[i].get('categoria')] = (
-                soma + livros[i].get('valor')
-            )
+    if os.path.getsize('data/biblioteca.txt') != 0:
+        with open("data/biblioteca.txt", "r") as f:
+            for linha in f:
+                livro = linha.split(',')
+                if livro[2].strip() not in categorias:
+                    categorias[livro[2].strip()] = float(livro[3].strip())
+                else:
+                    soma = categorias[livro[2].strip()]
+                    categorias[livro[2].strip()] = (
+                        soma + float(livro[3].strip())
+                    )
+    if len(livros) != 0:
+        for i in range(len(livros)):
+            if livros[i].get('categoria') not in categorias:
+                categorias[livros[i].get('categoria')] = livros[i].get('valor')
+            else:
+                soma = categorias[livros[i].get('categoria')]
+                categorias[livros[i].get('categoria')] = (
+                    soma + livros[i].get('valor')
+                )
     for categoria in categorias:
         print(f'{categoria}: R$ {categorias[categoria]:.2f}')
 
