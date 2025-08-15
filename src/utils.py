@@ -57,6 +57,12 @@ def extrato_por_categoria(livros):
 
 def controle_de_gastos(livros):
     soma = 0
-    for i in range(len(livros)):
-        soma += livros[i].get('valor')
-    print(f'R$ {soma:.2f}')
+    if os.path.getsize('data/biblioteca.txt') != 0:
+        with open("data/biblioteca.txt", "r") as f:
+            for linha in f:
+                livro = linha.split(',')
+                soma += float(livro[3].strip())
+    if len(livros) != 0:
+        for i in range(len(livros)):
+            soma += livros[i].get('valor')
+        print(f'R$ {soma:.2f}')
