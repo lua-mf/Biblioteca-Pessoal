@@ -1,3 +1,4 @@
+import os
 def adicionar(livros):
     livro = {}
     nome = input('nome: ')
@@ -15,9 +16,15 @@ def adicionar(livros):
 
 def visualizar_todos(livros):
     print('--------- Todos os Livros ---------\n')
-    for i in range(len(livros)):
-        print(livros[i].get('nome'))
-
+    if os.path.getsize('data/biblioteca.txt') != 0:
+        with open("data/biblioteca.txt", "r") as f:
+            for linha in f:
+                print(linha[0])
+            
+    if len(livros) != 0:
+        for i in range(len(livros)):
+            print(livros[i].get('nome'))
+        
 
 def filtrar_por_categoria(livros):
     categoria = input('categoria: ')
