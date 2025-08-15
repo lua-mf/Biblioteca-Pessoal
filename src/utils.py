@@ -28,9 +28,17 @@ def visualizar_todos(livros):
 
 def filtrar_por_categoria(livros):
     categoria = input('categoria: ')
-    for i in range(len(livros)):
-        if livros[i].get('categoria') == categoria:
-            print(livros[i].get('nome'))
+    if os.path.getsize('data/biblioteca.txt') != 0:
+        with open("data/biblioteca.txt", "r") as f:
+            for linha in f:
+                livro = linha.split(',')
+                if livro[2].strip() == categoria:
+                    print(livro[0].strip())
+
+    if len(livros) != 0:
+        for i in range(len(livros)):
+            if livros[i].get('categoria') == categoria:
+                print(livros[i].get('nome'))
 
 
 def extrato_por_categoria(livros):
