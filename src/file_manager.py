@@ -1,9 +1,13 @@
 import os
 def salvar_biblioteca(livros):
-    with open("data/biblioteca.txt", "a", encoding="utf-8") as arquivo:
-        for livro in livros:
-            arquivo.write(f"{livro['nome']}, {livro['autor']}, {livro['categoria']}, {livro['valor']}\n")
-        
+    try:
+        with open("data/biblioteca.txt", "a", encoding="utf-8") as arquivo:
+            for livro in livros:
+                arquivo.write(f"{livro['nome']}, {livro['autor']}, {livro['categoria']}, {livro['valor']}\n")
+            print(f"Biblioteca salva com sucesso em biblioteca.txt.")
+    except IOError as e:
+        print(f"Erro ao salvar o arquivo: {e}")
+
 def carregar_biblioteca():
     livros = []
     try:
